@@ -1,0 +1,32 @@
+{
+  "defaults": {
+    "shell_cmd": "docker exec -it {project} bash",
+    "console_cmd": "docker exec -it {project} rails console",
+    "user":  "youruser"
+  },
+  "bastion": {
+    "user": "youruser",
+    "host": "bastion-ssh.host"
+  },
+  "projects": {
+    "immich": {
+      "dev": {
+        "user": "youruser",
+        "server": "my.server.ip",
+        "shell_cmd": "bash main.sh {project} {env}"
+      },
+      "prod": {
+        "user": "produser",
+        "server": "prod.myapp.internal",
+        "console_cmd": "docker exec -it prod_container rails c"
+      }
+    },
+    "otherapp": {
+      "staging": {
+        "user": "staguser",
+        "server": "staging.otherapp.internal"
+      }
+    }
+  }
+}
+
